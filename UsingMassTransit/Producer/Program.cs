@@ -10,9 +10,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var configuration = builder.Configuration;
-var servidor = configuration.GetSection("MassTransit")["NomeFila"] ?? string.Empty;
-var usuario = configuration.GetSection("MassTransit")["Usuario"] ?? string.Empty;
-var senha = configuration.GetSection("MassTransit")["Senha"] ?? string.Empty;
+var servidor = configuration.GetSection("MassTransit")["Servidor"] ?? "localhost";
+var usuario = configuration.GetSection("MassTransit")["Usuario"] ?? "guest";
+var senha = configuration.GetSection("MassTransit")["Senha"] ?? "guest";
+
+
 
 builder.Services.AddMassTransit((x =>
 {
